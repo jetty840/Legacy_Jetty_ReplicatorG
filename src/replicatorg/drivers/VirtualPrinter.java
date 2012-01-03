@@ -255,6 +255,24 @@ public class VirtualPrinter implements Driver, DriverQueryInterface {
 	}
 
 	@Override
+	public void moodLightSetRGB(int red, int green, int blue, int fadeSpeed, int writeToEeprom)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void moodLightSetHSB(int hue, int saturation, int brightness, int fadeSpeed)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void moodLightPlayScript(int scriptId, int writeToEeprom)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
 	public void homeAxes(EnumSet<AxisId> axes, boolean positive, double feedrate)
 			throws RetryException {
 		// TODO Auto-generated method stub

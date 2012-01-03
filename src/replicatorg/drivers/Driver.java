@@ -221,6 +221,15 @@ public interface Driver {
 	public double getCurrentFeedrate();
 
 	/**
+	 * Moodlight Methods
+	 */
+	public void moodLightSetRGB(int red, int green, int blue, int fadeSpeed, int writeToEeprom) throws RetryException;
+
+	public void moodLightSetHSB(int hue, int saturation, int brightness, int fadeSpeed) throws RetryException;
+
+	public void moodLightPlayScript(int scriptId, int writeToEeprom) throws RetryException;
+
+	/**
 	 * Home the given set of axes at the given feedrate.  If the feedrate is <=0, run at
 	 * maximum feedrate for the appropriate axes.
 	 * @throws RetryException 

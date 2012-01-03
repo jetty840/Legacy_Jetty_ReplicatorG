@@ -625,7 +625,7 @@ public class GCodeParser {
 		case M141: // skeinforge chamber plugin chamber temperature code
 		case M142: // skeinforge chamber plugin holding pressure code
 			break;
-		
+
 		// initialize to default state.
 		case M200:
 			commands.add(new replicatorg.drivers.commands.Initialize());
@@ -659,6 +659,61 @@ public class GCodeParser {
 			commands.add(new replicatorg.drivers.commands.WaitUntilBufferEmpty());
 			commands.add(new replicatorg.drivers.commands.DataCaptureNote(gcode.getComment()));
 			break;
+
+		case M210: // Mood Light Set RGB Color
+			double fadeSpeed = (int)gcode.getCodeValue('S');
+			if ( fadeSpeed == -1 )	fadeSpeed = 8;		//The default
+
+			double writeToEeprom = (int)gcode.getCodeValue('E');
+			if ( writeToEeprom == -1 )	writeToEeprom = 0;		//The default
+
+			if (( fadeSpeed < 0 ) || ( fadeSpeed > 255 )) {
+				throw new GCodeException("The S parameter must, range from 0-255. (M210)");
+			}
+
+			double red   = gcode.getCodeValue('I');
+			double green = gcode.getCodeValue('J');
+			double blue  = gcode.getCodeValue('K');
+
+			if (( red >= 0.0 ) && ( red<=255.0) && ( green >= 0.0 ) && ( green<=255.0) && ( blue >= 0.0 ) && ( blue<=255.0)) {
+				commands.add(new replicatorg.drivers.commands.MoodLightSetRGB((int)red, (int)green, (int)blue, (int)fadeSpeed, (int)writeToEeprom));
+			} else {
+				throw new GCodeException("The IJK parameters are required for mood light changes, ranging from 0-255. (M210)");
+			}
+			break;
+
+		case M211: // Mood Light Set HSB Color
+			fadeSpeed = (int)gcode.getCodeValue('S');
+			if ( fadeSpeed == -1 )	fadeSpeed = 8;		//The default
+
+			if (( fadeSpeed < 0 ) || ( fadeSpeed > 255 )) {
+				throw new GCodeException("The S parameter must, range from 0-255. (M211)");
+			}
+
+			double hue   	   = gcode.getCodeValue('I');
+			double saturation  = gcode.getCodeValue('J');
+			double brightness  = gcode.getCodeValue('K');
+
+			if (( hue >= 0.0 ) && ( hue<=255.0) && ( saturation >= 0.0 ) && ( saturation<=255.0) && ( brightness >= 0.0 ) && ( brightness<=255.0)) {
+				commands.add(new replicatorg.drivers.commands.MoodLightSetHSB((int)hue, (int)saturation, (int)brightness, (int)fadeSpeed));
+			} else {
+				throw new GCodeException("The IJK parameters are required for mood light changes, ranging from 0-255. (M211)");
+			}
+			break;
+
+		case M212: // Mood Light Play Script
+			double scriptId = (int)gcode.getCodeValue('S');
+
+			writeToEeprom = (int)gcode.getCodeValue('E');
+			if ( writeToEeprom == -1 )	writeToEeprom = 0;		//The default
+
+			if (( scriptId >= 0 ) && ( scriptId <= 255 )) {
+				commands.add(new replicatorg.drivers.commands.MoodLightPlayScript((int)scriptId, (int)writeToEeprom));
+			} else {
+				throw new GCodeException("The S parameter is required and must, range from 0-255. (M212)");
+			}
+			break;
+		
 		default:
 			throw new GCodeException("Unknown M code: M" + (int) gcode.getCodeValue('M'));
 		}

@@ -50,7 +50,10 @@ public enum MotherboardCommandCode {
 	QUEUE_POINT_NEW(142),
 	
 	STORE_HOME_POSITIONS(143),
-	RECALL_HOME_POSITIONS(144);
+	RECALL_HOME_POSITIONS(144),
+	MOOD_LIGHT_SET_RGB(210),
+	MOOD_LIGHT_SET_HSB(211),
+	MOOD_LIGHT_PLAY_SCRIPT(212);
 	
 	private int code;
 	private MotherboardCommandCode(int code) {

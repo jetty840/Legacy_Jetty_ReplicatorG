@@ -408,6 +408,19 @@ public class DriverBaseImplementation implements Driver, DriverQueryInterface{
 	public void selectTool(int toolIndex) throws RetryException {
 		machine.selectTool(toolIndex);
 	}
+	
+	/***************************************************************************
+	 * Mood Light interface functions
+	 * @throws RetryException 
+	 **************************************************************************/
+	public void moodLightSetRGB(int red, int green, int blue, int fadeSpeed, int writeToEeprom) throws RetryException {
+	}
+
+	public void moodLightSetHSB(int hue, int saturation, int brightness, int fadeSpeed) throws RetryException {
+	}
+
+	public void moodLightPlayScript(int scriptId, int writeToEeprom) throws RetryException {
+	}
 
 	/***************************************************************************
 	 * pause function

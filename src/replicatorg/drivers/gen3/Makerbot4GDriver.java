@@ -243,4 +243,41 @@ public class Makerbot4GDriver extends Sanguino3GDriver {
 		}
 	}
 
+	public void moodLightSetRGB(int red, int green, int blue, int fadeSpeed, int writeToEeprom) throws RetryException {
+		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.MOOD_LIGHT_SET_RGB.getCode());
+
+		pb.add32(red);
+		pb.add32(green);
+		pb.add32(blue);
+		pb.add32(fadeSpeed);
+		pb.add32(writeToEeprom);
+
+		Base.logger.log(Level.FINE,"Set Mood Light RGB to (" + red + " " + green + " " + blue + ") with fade: (" + fadeSpeed + ")"  + "and writeToEeprom: (" + writeToEeprom +")" );
+
+		runCommand(pb.getPacket());
+	}
+
+	public void moodLightSetHSB(int hue, int saturation, int brightness, int fadeSpeed) throws RetryException {
+		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.MOOD_LIGHT_SET_HSB.getCode());
+
+		pb.add32(hue);
+		pb.add32(saturation);
+		pb.add32(brightness);
+		pb.add32(fadeSpeed);
+
+		Base.logger.log(Level.FINE,"Set Mood Light HSB to (" + hue + " " + saturation + " " + brightness + ") with fade: (" + fadeSpeed + ")" );
+
+		runCommand(pb.getPacket());
+	}
+
+	public void moodLightPlayScript(int scriptId, int writeToEeprom) throws RetryException {
+		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.MOOD_LIGHT_PLAY_SCRIPT.getCode());
+
+		pb.add32(scriptId);
+		pb.add32(writeToEeprom);
+
+		Base.logger.log(Level.FINE,"Set Mood Light Play Script to (" + scriptId + ")" + " with writeToEeprom: (" + writeToEeprom + ")" );
+
+		runCommand(pb.getPacket());
+	}
 }
