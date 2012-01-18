@@ -423,6 +423,17 @@ public class DriverBaseImplementation implements Driver, DriverQueryInterface{
 	}
 
 	/***************************************************************************
+	 * Buzzer interface functions
+	 * @throws RetryException 
+	 **************************************************************************/
+
+	public void setBuzzerRepetitions(int repeats) throws RetryException {
+	}
+
+        public void buzz(int buzzes, int duration, int repeats) throws RetryException {
+	}
+
+	/***************************************************************************
 	 * pause function
 	 * @throws RetryException 
 	 **************************************************************************/

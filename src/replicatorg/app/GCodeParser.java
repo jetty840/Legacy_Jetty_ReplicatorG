@@ -713,7 +713,30 @@ public class GCodeParser {
 				throw new GCodeException("The S parameter is required and must, range from 0-255. (M212)");
 			}
 			break;
-		
+		case M213: // Set Buzzer Repetitions
+			int repeats = (int)gcode.getCodeValue('K');
+
+			if (( repeats >= 0 ) && ( repeats <= 254 )) {
+				commands.add(new replicatorg.drivers.commands.SetBuzzerRepetitions(repeats));
+			} else {
+				throw new GCodeException("The K parameter is required and must, range from 0-254. (M213)");
+			}
+			break;
+
+		case M214: // Buzz
+			int buzzes  = (int)gcode.getCodeValue('I');	
+			int duration = (int)gcode.getCodeValue('J');	
+			repeats  = (int)gcode.getCodeValue('K');	
+
+			if	((buzzes < 0) || ( buzzes > 255 ))
+				throw new GCodeException("The I parameter is required and must, range from 0-255. (M214)");
+			else if (( duration < 1 ) || ( duration > 255))
+				throw new GCodeException("The J parameter is required and must, range from 1 - 255. (M214)");
+			else if (( repeats < 1 ) || ( repeats > 255))
+				throw new GCodeException("The K parameter is required and must, range from 1 - 255. (M214)");
+			else	commands.add(new replicatorg.drivers.commands.Buzz(buzzes, duration, repeats));
+			break;
+
 		default:
 			throw new GCodeException("Unknown M code: M" + (int) gcode.getCodeValue('M'));
 		}

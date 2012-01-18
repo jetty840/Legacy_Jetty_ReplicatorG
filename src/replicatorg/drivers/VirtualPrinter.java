@@ -273,6 +273,18 @@ public class VirtualPrinter implements Driver, DriverQueryInterface {
 	}
 
 	@Override
+	public void setBuzzerRepetitions(int repeats)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+        public void buzz(int buzzes, int duration, int repeats)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
 	public void homeAxes(EnumSet<AxisId> axes, boolean positive, double feedrate)
 			throws RetryException {
 		// TODO Auto-generated method stub

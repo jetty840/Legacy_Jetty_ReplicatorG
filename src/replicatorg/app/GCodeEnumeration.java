@@ -78,6 +78,8 @@ public enum GCodeEnumeration {
 	M210("M", 210, "Mood Light Set RGB Color"),
 	M211("M", 211, "Mood Light Set HSB Color"),
 	M212("M", 212, "Mood Light Play Script"),
+	M213("M", 213, "Set Buzzer Repetitions"),
+	M214("M", 214, "Buzz"),
 
 	G0("G", 0, "Rapid Positioning"),
 	G1("G", 1, "Coordinated Motion"),

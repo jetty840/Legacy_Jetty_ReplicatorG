@@ -280,4 +280,26 @@ public class Makerbot4GDriver extends Sanguino3GDriver {
 
 		runCommand(pb.getPacket());
 	}
+
+	public void setBuzzerRepetitions(int repeats) throws RetryException {
+		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.BUZZER_REPEATS.getCode());
+
+		pb.add8(repeats);
+
+		Base.logger.log(Level.FINE,"Set Buzzer Repetitions to (" + repeats + ")" );
+
+		runCommand(pb.getPacket());
+	}
+
+	public void buzz(int buzzes, int duration, int repeats) throws RetryException {
+		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.BUZZER_BUZZ.getCode());
+
+		pb.add8(buzzes);
+		pb.add8(duration);
+		pb.add8(repeats);
+
+		Base.logger.log(Level.FINE,"Buzz (" + buzzes + " " + duration + " " + repeats + ")" );
+
+		runCommand(pb.getPacket());
+	}
 }

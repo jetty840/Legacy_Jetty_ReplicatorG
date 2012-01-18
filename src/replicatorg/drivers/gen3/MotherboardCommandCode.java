@@ -53,7 +53,9 @@ public enum MotherboardCommandCode {
 	RECALL_HOME_POSITIONS(144),
 	MOOD_LIGHT_SET_RGB(210),
 	MOOD_LIGHT_SET_HSB(211),
-	MOOD_LIGHT_PLAY_SCRIPT(212);
+	MOOD_LIGHT_PLAY_SCRIPT(212),
+	BUZZER_REPEATS(213),
+	BUZZER_BUZZ(214);
 	
 	private int code;
 	private MotherboardCommandCode(int code) {

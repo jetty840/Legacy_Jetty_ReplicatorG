@@ -230,6 +230,13 @@ public interface Driver {
 	public void moodLightPlayScript(int scriptId, int writeToEeprom) throws RetryException;
 
 	/**
+	 * Buzzer Methods
+	 */
+	public void setBuzzerRepetitions(int repeats) throws RetryException;
+
+	public void buzz(int buzzes, int duration, int repeats) throws RetryException;
+
+	/**
 	 * Home the given set of axes at the given feedrate.  If the feedrate is <=0, run at
 	 * maximum feedrate for the appropriate axes.
 	 * @throws RetryException 
