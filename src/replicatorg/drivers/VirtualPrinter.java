@@ -285,10 +285,62 @@ public class VirtualPrinter implements Driver, DriverQueryInterface {
 	}
 
 	@Override
-	public void homeAxes(EnumSet<AxisId> axes, boolean positive, double feedrate)
+        public void setMaxAcceleration(double x, double y, double z, double a) 
 			throws RetryException {
 		// TODO Auto-generated method stub
+	}
 
+	@Override
+        public void setMaxFeedRate(double x, double y, double z, double a)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+        public void setDefaultAcceleration(double s, double t)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+        public void setAdvancedSettings(double s, double t, double x, double z)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+        public void setFilamentDiameter(double s)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+        public void setAdvanceK(double s)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+        public void setExtruderStepsPerMM(double a)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+        public void setAccelerationControl(double s)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+        public void setAxisStepsPerMM(double x, double y, double z, double a)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void homeAxes(EnumSet<AxisId> axes, boolean positive, double feedrate) {
+		// TODO Auto-generated method stub
 	}
 
 	@Override

@@ -434,6 +434,38 @@ public class DriverBaseImplementation implements Driver, DriverQueryInterface{
 	}
 
 	/***************************************************************************
+	 * Acceleration interface functions
+	 * @throws RetryException 
+	 **************************************************************************/
+	
+        public void setMaxAcceleration(double x, double y, double z, double a) throws RetryException {
+	}
+
+        public void setMaxFeedRate(double x, double y, double z, double a) throws RetryException {
+	}
+
+        public void setDefaultAcceleration(double s, double t) throws RetryException {
+	}
+
+        public void setAdvancedSettings(double s, double t, double x, double z) throws RetryException {
+	}
+
+        public void setFilamentDiameter(double s) throws RetryException {
+	}
+
+        public void setAdvanceK(double s) throws RetryException {
+	}
+
+        public void setExtruderStepsPerMM(double a) throws RetryException {
+	}
+
+        public void setAccelerationControl(double s) throws RetryException {
+	}
+
+        public void setAxisStepsPerMM(double x, double y, double z, double a) throws RetryException {
+	}
+
+	/***************************************************************************
 	 * pause function
 	 * @throws RetryException 
 	 **************************************************************************/

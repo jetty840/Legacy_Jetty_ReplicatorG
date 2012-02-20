@@ -237,6 +237,27 @@ public interface Driver {
 	public void buzz(int buzzes, int duration, int repeats) throws RetryException;
 
 	/**
+	 * Acceleration Methods
+	 */
+	public void setMaxAcceleration(double x, double y, double z, double a) throws RetryException;
+
+	public void setMaxFeedRate(double x, double y, double z, double a) throws RetryException;
+
+	public void setDefaultAcceleration(double s, double t) throws RetryException;
+
+	public void setAdvancedSettings(double s, double t, double x, double z) throws RetryException;
+
+	public void setFilamentDiameter(double s) throws RetryException;
+
+	public void setAdvanceK(double s) throws RetryException;
+
+	public void setExtruderStepsPerMM(double a) throws RetryException;
+
+	public void setAccelerationControl(double s) throws RetryException;
+
+	public void setAxisStepsPerMM(double x, double y, double z, double a) throws RetryException;
+ 
+	/**
 	 * Home the given set of axes at the given feedrate.  If the feedrate is <=0, run at
 	 * maximum feedrate for the appropriate axes.
 	 * @throws RetryException 

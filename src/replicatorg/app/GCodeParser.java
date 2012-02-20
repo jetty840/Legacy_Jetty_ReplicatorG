@@ -660,6 +660,72 @@ public class GCodeParser {
 			commands.add(new replicatorg.drivers.commands.DataCaptureNote(gcode.getComment()));
 			break;
 
+		case M201: //Set max acceleration
+			{
+				double x = gcode.getCodeValue('X');
+				double y = gcode.getCodeValue('Y');
+				double z = gcode.getCodeValue('Z');
+				double a = gcode.getCodeValue('A');
+				commands.add(new replicatorg.drivers.commands.SetMaxAcceleration(x,y,z,a));
+			}
+			break;
+
+		case M203: //Set max feedrate
+			{
+				double x = gcode.getCodeValue('X');
+				double y = gcode.getCodeValue('Y');
+				double z = gcode.getCodeValue('Z');
+				double a = gcode.getCodeValue('A');
+				commands.add(new replicatorg.drivers.commands.SetMaxFeedRate(x,y,z,a));
+			}
+			break;
+
+		case M204: //Set default acceleration
+			{
+				double s = gcode.getCodeValue('S');
+				double t = gcode.getCodeValue('K');
+				commands.add(new replicatorg.drivers.commands.SetDefaultAcceleration(s,t));
+			}
+			break;
+
+		case M205: //Set Advanced Settings
+			{
+				double s = (double)gcode.getCodeValue('S') / 10.0;
+				double t = (double)gcode.getCodeValue('K') / 10.0;
+				double x = (double)gcode.getCodeValue('X') / 10.0;
+				double z = (double)gcode.getCodeValue('Z') / 10.0;
+				commands.add(new replicatorg.drivers.commands.SetAdvancedSettings(s,t,x,z));
+			}
+			break;
+
+		case M206: //Set Filament Diameter
+			{
+				double s = (double)gcode.getCodeValue('S') / 100.0;
+				commands.add(new replicatorg.drivers.commands.SetFilamentDiameter(s));
+			}
+			break;
+
+		case M207: //Set Advance K
+			{
+				double s = (double)gcode.getCodeValue('S') / 100000.0;
+				commands.add(new replicatorg.drivers.commands.SetAdvanceK(s));
+			}
+			break;
+
+		case M208: //Set Extruder Steps:mm
+			{
+				double a = gcode.getCodeValue('A') / 10.0;
+				commands.add(new replicatorg.drivers.commands.SetExtruderStepsPerMM(a));
+			}
+			break;
+
+		case M209: //Set Acceleration Control
+			{
+				double s = gcode.getCodeValue('S');
+				commands.add(new replicatorg.drivers.commands.SetAccelerationControl(s));
+			}
+			break;
+
 		case M210: // Mood Light Set RGB Color
 			double fadeSpeed = (int)gcode.getCodeValue('S');
 			if ( fadeSpeed == -1 )	fadeSpeed = 8;		//The default
@@ -735,6 +801,16 @@ public class GCodeParser {
 			else if (( repeats < 1 ) || ( repeats > 255))
 				throw new GCodeException("The K parameter is required and must, range from 1 - 255. (M214)");
 			else	commands.add(new replicatorg.drivers.commands.Buzz(buzzes, duration, repeats));
+			break;
+
+		case M215: //Set Axis Steps Per:mm
+			{
+				double x = (double)gcode.getCodeValue('X') / 10000.0;
+				double y = (double)gcode.getCodeValue('Y') / 10000.0;
+				double z = (double)gcode.getCodeValue('Z') / 10000.0;
+				double a = (double)gcode.getCodeValue('A') / 10000.0;
+				commands.add(new replicatorg.drivers.commands.SetAxisStepsPerMM(x,y,z,a));
+			}
 			break;
 
 		default:
