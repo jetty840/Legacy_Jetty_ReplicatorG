@@ -75,7 +75,7 @@ public enum GCodeEnumeration {
 	M204("M", 204, "Set default acceleration"),
 	M205("M", 205, "Set Advanced Settings"),
 	M206("M", 206, "Set Filament Diameter"),
-	M207("M", 207, "Set Advance K"),
+	M207("M", 207, "Set Advance K and Seg Min Time"),
 	M208("M", 208, "Set Extruder Steps:mm"),
 	M209("M", 209, "Set Acceleration Control"),
 	M210("M", 210, "Mood Light Set RGB Color"),

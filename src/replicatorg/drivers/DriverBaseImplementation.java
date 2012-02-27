@@ -453,7 +453,7 @@ public class DriverBaseImplementation implements Driver, DriverQueryInterface{
         public void setFilamentDiameter(double s) throws RetryException {
 	}
 
-        public void setAdvanceK(double s) throws RetryException {
+        public void setAdvanceK(double s, double k) throws RetryException {
 	}
 
         public void setExtruderStepsPerMM(double a) throws RetryException {

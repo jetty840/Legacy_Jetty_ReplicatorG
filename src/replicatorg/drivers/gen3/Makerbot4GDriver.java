@@ -363,12 +363,13 @@ public class Makerbot4GDriver extends Sanguino3GDriver {
 		runCommand(pb.getPacket());
 	}
 
-        public void setAdvanceK(double s) throws RetryException {
+        public void setAdvanceK(double s, double k) throws RetryException {
 		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.SET_ADVANCE_K.getCode());
 
 		pb.add32((int)(s * 100000.0));
+		pb.add32((int)(k * 10000.0));
 
-		Base.logger.log(Level.FINE,"SetAdvanceK (" + s + ")" );
+		Base.logger.log(Level.FINE,"SetAdvanceK (" + s + " " + k + ")" );
 
 		runCommand(pb.getPacket());
 	}
