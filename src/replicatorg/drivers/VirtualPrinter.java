@@ -309,7 +309,7 @@ public class VirtualPrinter implements Driver, DriverQueryInterface {
 	}
 
 	@Override
-        public void setFilamentDiameter(double s)
+        public void setAdvancedSettings2(double s, double a, double k, double x, double y)
 			throws RetryException {
 		// TODO Auto-generated method stub
 	}

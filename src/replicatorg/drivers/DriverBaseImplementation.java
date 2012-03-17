@@ -450,7 +450,7 @@ public class DriverBaseImplementation implements Driver, DriverQueryInterface{
         public void setAdvancedSettings(double s, double t, double x, double z) throws RetryException {
 	}
 
-        public void setFilamentDiameter(double s) throws RetryException {
+        public void setAdvancedSettings2(double s, double a, double k, double x, double y) throws RetryException {
 	}
 
         public void setAdvanceK(double s, double k) throws RetryException {

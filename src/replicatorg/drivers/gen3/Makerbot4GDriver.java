@@ -353,12 +353,16 @@ public class Makerbot4GDriver extends Sanguino3GDriver {
 		runCommand(pb.getPacket());
 	}
 
-        public void setFilamentDiameter(double s) throws RetryException {
-		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.SET_FILAMENT_DIA.getCode());
+        public void setAdvancedSettings2(double s, double a, double k, double x, double y) throws RetryException {
+		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.SET_ADVANCED_ACCEL2.getCode());
 
 		pb.add32((int)(s * 100.0));
+		pb.add32((int)(a));
+		pb.add32((int)(k * 10.0));
+		pb.add32((int)(x));
+		pb.add32((int)(y));
 
-		Base.logger.log(Level.FINE,"SetFilamentDiameter (" + s + ")" );
+		Base.logger.log(Level.FINE,"SetAdvancedSettings2 (" + s + " " + a + " " + k + " " + x + " " + y + ")" );
 
 		runCommand(pb.getPacket());
 	}

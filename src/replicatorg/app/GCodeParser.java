@@ -698,10 +698,14 @@ public class GCodeParser {
 			}
 			break;
 
-		case M206: //Set Filament Diameter
+		case M206: //Set Advanced Settings 2
 			{
 				double s = (double)gcode.getCodeValue('S') / 100.0;
-				commands.add(new replicatorg.drivers.commands.SetFilamentDiameter(s));
+				double a = (double)gcode.getCodeValue('A');
+				double k = (double)gcode.getCodeValue('K') / 10.0;
+				double x = (double)gcode.getCodeValue('X');
+				double y = (double)gcode.getCodeValue('Y');
+				commands.add(new replicatorg.drivers.commands.SetAdvancedSettings2(s,a,k,x,y));
 			}
 			break;
 
