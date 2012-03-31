@@ -457,10 +457,10 @@ public class DriverBaseImplementation implements Driver, DriverQueryInterface{
         public void setDefaultAcceleration(double s, double t) throws RetryException {
 	}
 
-        public void setAdvancedSettings(double s, double t, double x, double z) throws RetryException {
+        public void setAdvancedSettings(double s, double t, double z) throws RetryException {
 	}
 
-        public void setAdvancedSettings2(double s, double a, double k, double y) throws RetryException {
+        public void setAdvancedSettings2(double s, double a, double k, double x, double y) throws RetryException {
 	}
 
         public void setAdvanceK(double s, double k) throws RetryException {

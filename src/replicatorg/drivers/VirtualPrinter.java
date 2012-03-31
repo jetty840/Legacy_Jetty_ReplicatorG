@@ -305,13 +305,13 @@ public class VirtualPrinter implements Driver, DriverQueryInterface {
 	}
 
 	@Override
-        public void setAdvancedSettings(double s, double t, double x, double z)
+        public void setAdvancedSettings(double s, double t, double z)
 			throws RetryException {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-        public void setAdvancedSettings2(double s, double a, double k, double y)
+        public void setAdvancedSettings2(double s, double a, double k, double x, double y)
 			throws RetryException {
 		// TODO Auto-generated method stub
 	}

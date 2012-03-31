@@ -621,9 +621,8 @@ public class GCodeParser {
 			{
 				double s = (double)gcode.getCodeValue('S') / 10.0;
 				double t = (double)gcode.getCodeValue('K') / 10.0;
-				double x = (double)gcode.getCodeValue('X') / 10.0;
 				double z = (double)gcode.getCodeValue('Z') / 10.0;
-				commands.add(new replicatorg.drivers.commands.SetAdvancedSettings(s,t,x,z));
+				commands.add(new replicatorg.drivers.commands.SetAdvancedSettings(s,t,z));
 			}
 			break;
 
@@ -632,8 +631,9 @@ public class GCodeParser {
 				double s = (double)gcode.getCodeValue('S') / 100.0;
 				double a = (double)gcode.getCodeValue('A');
 				double k = (double)gcode.getCodeValue('K') / 10.0;
+				double x = (double)gcode.getCodeValue('X');
 				double y = (double)gcode.getCodeValue('Y');
-				commands.add(new replicatorg.drivers.commands.SetAdvancedSettings2(s,a,k,y));
+				commands.add(new replicatorg.drivers.commands.SetAdvancedSettings2(s,a,k,x,y));
 			}
 			break;
 
