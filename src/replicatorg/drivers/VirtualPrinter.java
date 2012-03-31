@@ -341,7 +341,7 @@ public class VirtualPrinter implements Driver, DriverQueryInterface {
 	}
 
 	@Override
-        public void setMinJunctionSpeed(double x, double y, double z, double a) 
+        public void setMaxSpeedChange(double x, double y, double z, double a) 
 			throws RetryException {
 		// TODO Auto-generated method stub
 	}

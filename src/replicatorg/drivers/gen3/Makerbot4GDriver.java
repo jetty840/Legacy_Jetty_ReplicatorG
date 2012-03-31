@@ -454,15 +454,15 @@ public class Makerbot4GDriver extends Sanguino3GDriver {
 		runCommand(pb.getPacket());
 	}
 
-        public void setMinJunctionSpeed(double x, double y, double z, double a) throws RetryException {
-		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.SET_MIN_JUNCTION_SPEED.getCode());
+        public void setMaxSpeedChange(double x, double y, double z, double a) throws RetryException {
+		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.SET_MAX_SPEED_CHANGE.getCode());
 
 		pb.add32((int)(x*10.0));
 		pb.add32((int)(y*10.0));
 		pb.add32((int)(z*10.0));
 		pb.add32((int)(a*10.0));
 
-		Base.logger.log(Level.FINE,"SetMinJunctionSpeed (" + x + " " + y + " " + z + " " + a + ")" );
+		Base.logger.log(Level.FINE,"SetMaxSpeedChange (" + x + " " + y + " " + z + " " + a + ")" );
 
 		runCommand(pb.getPacket());
 	}

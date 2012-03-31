@@ -258,7 +258,7 @@ public interface Driver {
 
 	public void setAxisStepsPerMM(double x, double y, double z, double a) throws RetryException;
 
-	public void setMinJunctionSpeed(double x, double y, double z, double a) throws RetryException;
+	public void setMaxSpeedChange(double x, double y, double z, double a) throws RetryException;
  
 	/**
 	 * Home the given set of axes at the given feedrate.  If the feedrate is <=0, run at

@@ -746,13 +746,13 @@ public class GCodeParser {
 			}
 			break;
 
-		case M216: //Set Minimum Junction Speed
+		case M216: //Set Maximum Speed Change
 			{
 				double x = (double)gcode.getCodeValue('X') / 10.0;
 				double y = (double)gcode.getCodeValue('Y') / 10.0;
 				double z = (double)gcode.getCodeValue('Z') / 10.0;
 				double a = (double)gcode.getCodeValue('A') / 10.0;
-				commands.add(new replicatorg.drivers.commands.SetMinJunctionSpeed(x,y,z,a));
+				commands.add(new replicatorg.drivers.commands.SetMaxSpeedChange(x,y,z,a));
 			}
 			break;
 

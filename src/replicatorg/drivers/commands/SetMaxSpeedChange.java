@@ -3,11 +3,11 @@ package replicatorg.drivers.commands;
 import replicatorg.drivers.Driver;
 import replicatorg.drivers.RetryException;
 
-public class SetMinJunctionSpeed implements DriverCommand {
+public class SetMaxSpeedChange implements DriverCommand {
 
 	double x, y, z, a;
 
-	public SetMinJunctionSpeed(double x, double y, double z, double a) {
+	public SetMaxSpeedChange(double x, double y, double z, double a) {
 		this.x = x; 
 		this.y = y; 
 		this.z = z; 
@@ -15,6 +15,6 @@ public class SetMinJunctionSpeed implements DriverCommand {
 	}
 	@Override
 	public void run(Driver driver) throws RetryException {
-		driver.setMinJunctionSpeed(x,y,z,a);
+		driver.setMaxSpeedChange(x,y,z,a);
 	}
 }

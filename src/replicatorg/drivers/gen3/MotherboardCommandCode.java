@@ -79,7 +79,7 @@ public enum MotherboardCommandCode {
 	BUZZER_REPEATS(213,""),
 	BUZZER_BUZZ(214,""),
 	SET_AXIS_STEPS_MM(215,""),
-	SET_MIN_JUNCTION_SPEED(216,"");
+	SET_MAX_SPEED_CHANGE(216,"");
 	
 
 	private int code; 	/// id code of this packet in the s3g protocol

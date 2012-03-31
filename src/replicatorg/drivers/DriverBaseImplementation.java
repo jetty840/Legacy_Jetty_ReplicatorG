@@ -475,7 +475,7 @@ public class DriverBaseImplementation implements Driver, DriverQueryInterface{
         public void setAxisStepsPerMM(double x, double y, double z, double a) throws RetryException {
 	}
 
-        public void setMinJunctionSpeed(double x, double y, double z, double a) throws RetryException {
+        public void setMaxSpeedChange(double x, double y, double z, double a) throws RetryException {
 	}
 
 	/***************************************************************************
