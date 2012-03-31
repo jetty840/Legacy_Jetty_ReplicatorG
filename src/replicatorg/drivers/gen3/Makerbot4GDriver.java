@@ -396,16 +396,15 @@ public class Makerbot4GDriver extends Sanguino3GDriver {
 		runCommand(pb.getPacket());
 	}
 
-        public void setAdvancedSettings2(double s, double a, double k, double x, double y) throws RetryException {
+        public void setAdvancedSettings2(double s, double a, double k, double y) throws RetryException {
 		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.SET_ADVANCED_ACCEL2.getCode());
 
 		pb.add32((int)(s * 100.0));
 		pb.add32((int)(a));
 		pb.add32((int)(k * 10.0));
-		pb.add32((int)(x));
 		pb.add32((int)(y));
 
-		Base.logger.log(Level.FINE,"SetAdvancedSettings2 (" + s + " " + a + " " + k + " " + x + " " + y + ")" );
+		Base.logger.log(Level.FINE,"SetAdvancedSettings2 (" + s + " " + a + " " + k + " " + y + ")" );
 
 		runCommand(pb.getPacket());
 	}
@@ -451,6 +450,19 @@ public class Makerbot4GDriver extends Sanguino3GDriver {
 		pb.add32((long)(a * 100000.0));
 
 		Base.logger.log(Level.FINE,"SetAxisStepsPerMM (" + x + " " + y + " " + z + " " + a + ")" );
+
+		runCommand(pb.getPacket());
+	}
+
+        public void setMinJunctionSpeed(double x, double y, double z, double a) throws RetryException {
+		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.SET_MIN_JUNCTION_SPEED.getCode());
+
+		pb.add32((int)(x*10.0));
+		pb.add32((int)(y*10.0));
+		pb.add32((int)(z*10.0));
+		pb.add32((int)(a*10.0));
+
+		Base.logger.log(Level.FINE,"SetMinJunctionSpeed (" + x + " " + y + " " + z + " " + a + ")" );
 
 		runCommand(pb.getPacket());
 	}

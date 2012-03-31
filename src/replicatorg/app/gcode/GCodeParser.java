@@ -632,9 +632,8 @@ public class GCodeParser {
 				double s = (double)gcode.getCodeValue('S') / 100.0;
 				double a = (double)gcode.getCodeValue('A');
 				double k = (double)gcode.getCodeValue('K') / 10.0;
-				double x = (double)gcode.getCodeValue('X');
 				double y = (double)gcode.getCodeValue('Y');
-				commands.add(new replicatorg.drivers.commands.SetAdvancedSettings2(s,a,k,x,y));
+				commands.add(new replicatorg.drivers.commands.SetAdvancedSettings2(s,a,k,y));
 			}
 			break;
 
@@ -744,6 +743,16 @@ public class GCodeParser {
 				double z = (double)gcode.getCodeValue('Z') / 10000.0;
 				double a = (double)gcode.getCodeValue('A') / 10000.0;
 				commands.add(new replicatorg.drivers.commands.SetAxisStepsPerMM(x,y,z,a));
+			}
+			break;
+
+		case M216: //Set Minimum Junction Speed
+			{
+				double x = (double)gcode.getCodeValue('X') / 10.0;
+				double y = (double)gcode.getCodeValue('Y') / 10.0;
+				double z = (double)gcode.getCodeValue('Z') / 10.0;
+				double a = (double)gcode.getCodeValue('A') / 10.0;
+				commands.add(new replicatorg.drivers.commands.SetMinJunctionSpeed(x,y,z,a));
 			}
 			break;
 

@@ -311,7 +311,7 @@ public class VirtualPrinter implements Driver, DriverQueryInterface {
 	}
 
 	@Override
-        public void setAdvancedSettings2(double s, double a, double k, double x, double y)
+        public void setAdvancedSettings2(double s, double a, double k, double y)
 			throws RetryException {
 		// TODO Auto-generated method stub
 	}
@@ -336,6 +336,12 @@ public class VirtualPrinter implements Driver, DriverQueryInterface {
 
 	@Override
         public void setAxisStepsPerMM(double x, double y, double z, double a)
+			throws RetryException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+        public void setMinJunctionSpeed(double x, double y, double z, double a) 
 			throws RetryException {
 		// TODO Auto-generated method stub
 	}

@@ -92,6 +92,7 @@ public enum GCodeEnumeration {
 	M213("M", 213, "Set Buzzer Repetitions"),
 	M214("M", 214, "Buzz"),
 	M215("M", 215, "Set Axis Steps Per:mm"),
+	M216("M", 216, "Set Minimum Junction Speed"),
 	M300("M", 300, "Set Servo 1 Position"),
 	M301("M", 301, "Set Servo 2 Position"),
 	M310("M", 310, "Start data capture"),
