@@ -2913,13 +2913,14 @@ public class Sanguino3GDriver extends SerialDriver implements
 		runCommand(pb.getPacket());
 	}
 
-        public void setAdvanceK(double s, double k) throws RetryException {
+        public void setAdvanceK(double s, double a, double k) throws RetryException {
 		PacketBuilder pb = new PacketBuilder(MotherboardCommandCode.SET_ADVANCE_K.getCode());
 
 		pb.add32((int)(s * 100000.0));
+		pb.add32((int)(a * 100000.0));
 		pb.add32((int)(k * 10000.0));
 
-		Base.logger.log(Level.FINE,"SetAdvanceK (" + s + " " + k + ")" );
+		Base.logger.log(Level.FINE,"SetAdvanceK (" + s + " " + a + " " + k + ")" );
 
 		runCommand(pb.getPacket());
 	}

@@ -637,11 +637,12 @@ public class GCodeParser {
 			}
 			break;
 
-		case M207: //Set Advance K and Minimum Segment Time
+		case M207: //Set JKN Advance K/K2 and Minimum Segment Time
 			{
 				double s = (double)gcode.getCodeValue('S') / 100000.0;
+				double a = (double)gcode.getCodeValue('A') / 100000.0;
 				double k = (double)gcode.getCodeValue('K') / 10000.0;
-				commands.add(new replicatorg.drivers.commands.SetAdvanceK(s,k));
+				commands.add(new replicatorg.drivers.commands.SetAdvanceK(s,a,k));
 			}
 			break;
 

@@ -463,7 +463,7 @@ public class DriverBaseImplementation implements Driver, DriverQueryInterface{
         public void setAdvancedSettings2(double s, double a, double k, double x, double y) throws RetryException {
 	}
 
-        public void setAdvanceK(double s, double k) throws RetryException {
+        public void setAdvanceK(double s, double a, double k) throws RetryException {
 	}
 
         public void setExtruderStepsPerMM(double a) throws RetryException {

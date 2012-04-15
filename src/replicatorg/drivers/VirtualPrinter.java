@@ -317,7 +317,7 @@ public class VirtualPrinter implements Driver, DriverQueryInterface {
 	}
 
 	@Override
-        public void setAdvanceK(double s, double k)
+        public void setAdvanceK(double s, double a, double k)
 			throws RetryException {
 		// TODO Auto-generated method stub
 	}
